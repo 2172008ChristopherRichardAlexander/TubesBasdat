@@ -9,9 +9,11 @@
     $sql = "EXEC [dbo].[SP_AutoAkun] '".$firstName."','".$lastName."','".$userName."','".$phone."','".$password."','User'";
     $result = sqlsrv_query( $conn, $sql );
     if($result){
-        header("Location:Admin/page1.php?q=".$userName);
+        echo '<script type ="text/JavaScript">alert("Akun Berhasil Dibuat")</script>';
+        header("Refresh:0; url=index.html");
     }     
     else{
-        header("Location:index.html");
+        echo '<script type ="text/JavaScript">alert("Akun Gagal Dibuat") </script>';
+        header("Refresh:0; url=index.html");
     }
 ?>

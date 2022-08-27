@@ -56,7 +56,7 @@
 
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $_GET['q'] ?></a></li>
-                            <li><a href="../index.html"><span class="glyphicon glyphPicon-user"></span> Log out</a></li>
+                            <li><a href="../index.html"><span class="glyphicon glyphicon-user"></span> Log out</a></li>
                         </ul>
                     </div>
                 </div>
