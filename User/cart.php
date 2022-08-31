@@ -1,4 +1,20 @@
-<!DOCTYPE html>
+<?php 
+    include ('../connect.php');
+    $getColours = $_POST['color'];
+    $getName = $_POST['brandName'];
+    $getQty = $_POST['jumlah'];
+    $getPrice = $_POST['price'];
+    
+    $query = "INSERT into tbMenjualDet VALUES('".$getName."','".$getColours."','.$getQty.','.$getPrice.')";
+    $result = sqlsrv_query($conn, $query);
+    if($result){
+        echo "data masuk";
+    }
+    else{
+        echo "data gagal";
+    }
+?>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,7 +29,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <div class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -28,7 +43,7 @@
 
                 <div class="navbar-collapse collapse" id="mobile_menu">
                     <ul class="nav navbar-nav">
-                        <li ><a href="page1.php">Home</a></li>
+                        <li><a href="page1.php">Home</a></li>
                         <li class="active"><a href="cart.php">Cart</a></li>
                         <li><a href="contactus.php">Contact Us</a></li>
                     </ul>
@@ -58,6 +73,44 @@
         </div>
     </div>
 </div>
+<table class="table">
+    <thead bgcolor="grey">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ProductName</th>
+            <th scope="col">Colour</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <tdtd>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 <footer>
     <div class="content">
         <div class="top">
@@ -74,5 +127,12 @@
         </div>
 </footer>
 </body>
-
-</html>
+<script>
+    function RemoveRow(){
+        // event.target will be the input element.
+        var td = event.target.parentNode; 
+        var tr = td.parentNode; // the row to be removed
+        tr.parentNode.removeChild(tr);
+    }
+</script>
+</html> -->
