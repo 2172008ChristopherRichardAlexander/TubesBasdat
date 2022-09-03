@@ -73,9 +73,9 @@
     $result = sqlsrv_query($conn, $sql);
     $no = 1;
     $totHarga = 0;
+    $sql2 = "SELECT * FROM tbMenjual";
+    $result2 = sqlsrv_query($conn, $sql2);
     while ($row = sqlsrv_fetch_array($result)){
-        $sql2 = "SELECT * FROM tbMenjual WHERE idJual = $row[0]";
-        $result2 = sqlsrv_query($conn, $sql2);
         $row2 = sqlsrv_fetch_array($result2);
         if($row2[1]==$_GET['q']){
             echo "<tr>";
