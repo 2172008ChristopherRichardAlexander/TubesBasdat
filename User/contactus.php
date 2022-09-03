@@ -22,14 +22,14 @@
                     <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span
                             class="icon-bar"></span><span class="icon-bar"></span><span
                             class="icon-bar"></span></button>
-                    <a href="page1.php" class="navbar-brand">MariaDB</a>
+                    <a class="navbar-brand">MariaDB</a>
                 </div>
 
                 <div class="navbar-collapse collapse" id="mobile_menu">
                     <ul class="nav navbar-nav">
-                        <li ><a href="page1.php">Home</a></li>
-                        <li ><a href="cart.php">Cart</a></li>
-                        <li class="active"><a href="contactus.php">Contact Us</a></li>
+                    <li><a href="page1.php?q=<?php echo $_GET['q'] ?>">Home</a></li>
+                        <li><a href="cart.php?q=<?php echo $_GET['q'] ?>">Cart</a></li>
+                        <li class="active"><a  href="contactus.php?q=<?php echo $_GET['q'] ?>">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
                         <li>

@@ -1,22 +1,5 @@
-<?php 
-    include ('../connect.php');
-    $getColours = $_POST['color'];
-    $getName = $_POST['brandName'];
-    $getQty = $_POST['jumlah'];
-    $getPrice = $_POST['price'];
-    
-    $query = "INSERT into tbMenjualDet VALUES('".$getName."','".$getColours."','.$getQty.','.$getPrice.')";
-    $result = sqlsrv_query($conn, $query);
-    if($result){
-        echo "data masuk";
-    }
-    else{
-        echo "data gagal";
-    }
-?>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,14 +21,14 @@
                     <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span
                             class="icon-bar"></span><span class="icon-bar"></span><span
                             class="icon-bar"></span></button>
-                    <a href="page1.php" class="navbar-brand">MariaDB</a>
+                    <a class="navbar-brand">MariaDB</a>
                 </div>
 
                 <div class="navbar-collapse collapse" id="mobile_menu">
                     <ul class="nav navbar-nav">
-                        <li><a href="page1.php">Home</a></li>
-                        <li class="active"><a href="cart.php">Cart</a></li>
-                        <li><a href="contactus.php">Contact Us</a></li>
+                    <li><a href="page1.php?q=<?php echo $_GET['q'] ?>">Home</a></li>
+                        <li class="active"><a href="cart.php?q=<?php echo $_GET['q'] ?>">Cart</a></li>
+                        <li><a href="contactus.php?q=<?php echo $_GET['q'] ?>">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
                         <li>
@@ -84,32 +67,30 @@
             <th scope="col"></th>
         </tr>
     </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <tdtd>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
+    <?php 
+    include ('../connect.php');
+    $sql = "SELECT * FROM tbMenjualDet";
+    $result = sqlsrv_query($conn, $sql);
+    $no = 1;
+    $totHarga = 0;
+    while ($row = sqlsrv_fetch_array($result)){
+        $sql2 = "SELECT * FROM tbMenjual WHERE idJual = $row[0]";
+        $result2 = sqlsrv_query($conn, $sql2);
+        $row2 = sqlsrv_fetch_array($result2);
+        if($row2[1]==$_GET['q']){
+            echo "<tr>";
+            echo 	"<td>" . $no . "</td>";
+            echo 	"<td>" . $row[1] . "</td>";
+            echo 	"<td>" . $row[2] . "</td>";
+            echo 	"<td>". $row[3] . "</td>";
+            echo 	"<td>" . $row[4] . "</td>";
+            $totHarga += $row[4];
+            echo "</tr>";
+            $no+=1;
+        }  
+    }
+    echo "total Harga = $totHarga"
+    ?>
 </table>
 <footer>
     <div class="content">
@@ -135,4 +116,4 @@
         tr.parentNode.removeChild(tr);
     }
 </script>
-</html> -->
+</html>

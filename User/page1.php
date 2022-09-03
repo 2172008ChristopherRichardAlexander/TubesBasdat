@@ -1,6 +1,9 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +15,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.6.0.min.js"></script>
     <style>
         .prod-info-main {
             border: 1px solid #CEEFFF;
@@ -415,6 +419,9 @@
         input[type='number']{
         width: 50px;
         } 
+        .pabrik{
+            text-align: center;
+        }
     </style>
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -426,14 +433,14 @@
                     <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span
                             class="icon-bar"></span><span class="icon-bar"></span><span
                             class="icon-bar"></span></button>
-                    <a href="page1.php" class="navbar-brand">MariaDB</a>
+                    <a class="navbar-brand">MariaDB</a>
                 </div>
 
                 <div class="navbar-collapse collapse" id="mobile_menu">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="page1.php">Home</a></li>
-                        <li><a href="cart.php">Cart</a></li>
-                        <li><a href="contactus.php">Contact Us</a></li>
+                        <li class="active"><a href="page1.php?q=<?php echo $_GET['q'] ?>">Home</a></li>
+                        <li><a href="cart.php?q=<?php echo $_GET['q'] ?>">Cart</a></li>
+                        <li><a href="contactus.php?q=<?php echo $_GET['q'] ?>">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
                         <li>
@@ -461,7 +468,12 @@
         </div>
     </div>
 </div>
-
+<form id="myform" method="post" action="insertcart.php">
+    <select  id="yourid"  class="pabrik">
+        <option value="pabrikSenyum">Pabrik Senyum</option>
+        <option value="pabrikCemberut">Pabrik Cemberut</option>
+    </select>
+</form>
 <div class="container">
     <div class="col-xs-12 col-md-6">
         <!-- First product box start here-->
@@ -476,7 +488,7 @@
                         </span>
                     </div>
                 </div>
-                <form id="form1" method="post" action="cart.php">
+                <form  method="post" action="insertcart.php?q=<?php echo $_GET['q'] ?>">
                     <div class="col-md-7 col-sm-12 col-xs-12">
                         <div class="product-deatil">
                             <h5 class="name">
@@ -506,8 +518,9 @@
                                     <option value="Biru">Biru</option>
                                 </select>
                                 <input required name="jumlah" class="input1" min="1" type="number">Qty</input>
+                                <input type="hidden" id="hasilPabrik" name="pabrik" value="pabrikSenyum"></input>
                                 <div class="col-md-12">
-                                    <button type="submit" href="javascript:void(0);"
+                                    <button onclick="namaPabrik()" type="submit" href="javascript:void(0);"
                                         class="btn btn-danger btn-cart"><span>Add to
                                             cart</span></button>
                                 </div>
@@ -559,7 +572,7 @@
                         </span>
                     </div>
                 </div>
-                <form method="post" action="cart.php">
+                <form method="post" action="insertcart.php?q=<?php echo $_GET['q'] ?>"">
                     <div class="col-md-7 col-sm-12 col-xs-12">
                         <div class="product-deatil">
                             <h5 class="name">
@@ -586,8 +599,9 @@
                                     <option value="Biru">Biru</option>
                                 </select>
                                 <input required name="jumlah" class="input1" min="1" type="number" >Qty</input>
+                                <input type="hidden" id="hasilPabrik" name="pabrik" value="pabrikSenyum"></input>
                                 <div class="col-md-12">
-                                    <button type="submit" href="javascript:void(0);"
+                                    <button onclick="namaPabrik()" type="submit" href="javascript:void(0);"
                                         class="btn btn-danger btn-cart"><span>Add to
                                             cart</span></button>
                                 </div>
@@ -640,7 +654,7 @@
                         </span>
                     </div>
                 </div>
-                <form method="post" action="cart.php">
+                <form method="post" action="insertcart.php?q=<?php echo $_GET['q'] ?>"">
                     <div class="col-md-7 col-sm-12 col-xs-12">
                         <div class="product-deatil">
                             <h5 class="name">
@@ -667,8 +681,9 @@
                                     <option value="Biru">Biru</option>
                                 </select>
                                 <input required name="jumlah" class="input1" min="1" type="number">Qty</input>
+                                <input type="hidden" id="hasilPabrik" name="pabrik" value="pabrikSenyum"></input>
                                 <div class="col-md-12">
-                                    <button type="submit" href="javascript:void(0);"
+                                    <button onclick="namaPabrik()" type="submit" href="javascript:void(0);"
                                         class="btn btn-danger btn-cart"><span>Add to
                                             cart</span></button>
                                 </div>
@@ -721,7 +736,7 @@
                         </span>
                     </div>
                 </div>
-                <form method="post" action="cart.php">
+                <form method="post" action="insertcart.php?q=<?php echo $_GET['q'] ?>">
                     <div class="col-md-7 col-sm-12 col-xs-12">
                         <div class="product-deatil">
                             <h5 class="name">
@@ -748,8 +763,9 @@
                                     <option value="Biru">Biru</option>
                                 </select>
                                 <input required name="jumlah" class="input1" min="1" type="number">Qty</input>
+                                <input type="hidden" id="hasilPabrik" name="pabrik" value="pabrikSenyum"></input>
                                 <div class="col-md-12">
-                                    <button type="submit" href="javascript:void(0);"
+                                <button onclick="namaPabrik()" type="submit" href="javascript:void(0);"
                                         class="btn btn-danger btn-cart"><span>Add to
                                             cart</span></button>
                                 </div>
@@ -788,6 +804,12 @@
             }
         }
 </script>
+<script>
+    function namaPabrik(){
+        var x =document.getElementById("yourid").value;
+        document.getElementById("hasilPabrik").value=x;
+    }
+</script>
 </form>
 <footer>
     <div class="content">
@@ -806,7 +828,9 @@
 </footer>
 
 </body>
-<script>
-
-</script>
 </html>
+
+<?php 
+    
+
+?>
