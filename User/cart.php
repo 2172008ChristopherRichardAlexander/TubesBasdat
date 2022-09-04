@@ -75,9 +75,10 @@
     $totHarga = 0;
     $sql2 = "SELECT * FROM tbMenjual";
     $result2 = sqlsrv_query($conn, $sql2);
+    
     while ($row = sqlsrv_fetch_array($result)){
         $row2 = sqlsrv_fetch_array($result2);
-        if($row2[1]==$_GET['q']){
+        if($row2[1]==$_GET['q'] AND $row[0]=$row2[0]){
             echo "<tr>";
             echo 	"<td>" . $no . "</td>";
             echo 	"<td>" . $row[1] . "</td>";
@@ -108,12 +109,4 @@
         </div>
 </footer>
 </body>
-<script>
-    function RemoveRow(){
-        // event.target will be the input element.
-        var td = event.target.parentNode; 
-        var tr = td.parentNode; // the row to be removed
-        tr.parentNode.removeChild(tr);
-    }
-</script>
 </html>
