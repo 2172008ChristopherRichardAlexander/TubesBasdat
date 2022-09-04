@@ -27,22 +27,10 @@
                 <div class="navbar-collapse collapse" id="mobile_menu">
                     <ul class="nav navbar-nav">
                     <li><a href="page1.php?q=<?php echo $_GET['q'] ?>">Home</a></li>
-                        <li class="active"><a href="cart.php?q=<?php echo $_GET['q'] ?>">Cart</a></li>
+                        <li class="active"><a href="cart.php?q=<?php echo $_GET['q'] ?>">History</a></li>
                         <li><a href="contactus.php?q=<?php echo $_GET['q'] ?>">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
-                        <li>
-                            <form action="" class="navbar-form">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="search" name="search" id="" placeholder="Search Anything Here..."
-                                            class="form-control">
-                                        <span class="input-group-addon"><span
-                                                class="glyphicon glyphicon-search"></span></span>
-                                    </div>
-                                </div>
-                            </form>
-                        </li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

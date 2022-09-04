@@ -439,22 +439,8 @@
                 <div class="navbar-collapse collapse" id="mobile_menu">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="page1.php?q=<?php echo $_GET['q'] ?>">Home</a></li>
-                        <li><a href="cart.php?q=<?php echo $_GET['q'] ?>">Cart</a></li>
+                        <li><a href="cart.php?q=<?php echo $_GET['q'] ?>">History</a></li>
                         <li><a href="contactus.php?q=<?php echo $_GET['q'] ?>">Contact Us</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <form action="" class="navbar-form">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="search" name="search" id="" placeholder="Search Anything Here..."
-                                            class="form-control">
-                                        <span class="input-group-addon"><span
-                                                class="glyphicon glyphicon-search"></span></span>
-                                    </div>
-                                </div>
-                            </form>
-                        </li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -506,7 +492,7 @@
                             <span class="tag1"></span>
                         </div>
                         <div class="description">
-                            <p>A Short product description here </p>
+                            <p>Warnai rumah Anda Dulux Paint.</p>
                         </div>
                         <div class="product-info smart-form">
                             <div class="row">
@@ -521,8 +507,7 @@
                                 <input type="hidden" id="hasilPabrik" name="pabrik" value="pabrikSenyum"></input>
                                 <div class="col-md-12">
                                     <button onclick="namaPabrik()" type="submit" href="javascript:void(0);"
-                                        class="btn btn-danger btn-cart"><span>Add to
-                                            cart</span></button>
+                                        class="btn btn-danger btn-cart"><span>Buy</span></button>
                                 </div>
                                 <div class="col-md-12">
                                 </div>
@@ -587,7 +572,7 @@
                             <span class="tag1"></span>
                         </div>
                         <div class="description">
-                            <p>A Short product description here </p>
+                            <p>Dapatkan Cat Pelapis Anti Bocor Tahan Lama Hingga 5 Tahun.</p>
                         </div>
                         <div class="product-info smart-form">
                             <div class="row">
@@ -602,8 +587,7 @@
                                 <input type="hidden" id="hasilPabrik" name="pabrik" value="pabrikSenyum"></input>
                                 <div class="col-md-12">
                                     <button onclick="namaPabrik()" type="submit" href="javascript:void(0);"
-                                        class="btn btn-danger btn-cart"><span>Add to
-                                            cart</span></button>
+                                        class="btn btn-danger btn-cart"><span>Buy</span></button>
                                 </div>
                                 <div class="col-md-12">
 
@@ -669,7 +653,7 @@
                             <span class="tag1"></span>
                         </div>
                         <div class="description">
-                            <p>A Short product description here </p>
+                            <p>Percantik Rumah Anda dengan Cat Tembok Anti Pudar dan Tahan Lama. </p>
                         </div>
                         <div class="product-info smart-form">
                             <div class="row">
@@ -684,8 +668,7 @@
                                 <input type="hidden" id="hasilPabrik" name="pabrik" value="pabrikSenyum"></input>
                                 <div class="col-md-12">
                                     <button onclick="namaPabrik()" type="submit" href="javascript:void(0);"
-                                        class="btn btn-danger btn-cart"><span>Add to
-                                            cart</span></button>
+                                        class="btn btn-danger btn-cart"><span>Buy</span></button>
                                 </div>
                                 <div class="col-md-12">
 
@@ -751,7 +734,7 @@
                             <span class="tag1"></span>
                         </div>
                         <div class="description">
-                            <p>A Short product description here </p>
+                            <p>Mau menyulap rumah kamu menjadi rumah yang elegan dengan Puffin Paint </p>
                         </div>
                         <div class="product-info smart-form">
                             <div class="row">
@@ -766,8 +749,7 @@
                                 <input type="hidden" id="hasilPabrik" name="pabrik" value="pabrikSenyum"></input>
                                 <div class="col-md-12">
                                 <button onclick="namaPabrik()" type="submit" href="javascript:void(0);"
-                                        class="btn btn-danger btn-cart"><span>Add to
-                                            cart</span></button>
+                                        class="btn btn-danger btn-cart"><span>Buy</span></button>
                                 </div>
                                 <div class="col-md-12">
                                 </div>

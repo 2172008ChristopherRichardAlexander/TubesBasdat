@@ -1,5 +1,5 @@
 <?php 
-    
+
     if($_POST['color']!=NULL and $_POST['brandName']!=NULL and $_POST['jumlah']!=NULL and $_POST['price']!=NULL and $_POST['pabrik']!=NULL){
         
         include ('../connect.php');
@@ -76,21 +76,31 @@
                 $kodeProduct = "NP-004";
             }
         }
-        $query = "EXEC [dbo].[SP_AutoJual] '".$kodePabrik."','".$akun."'";
-        $result = sqlsrv_query($conn, $query);
-        if($result){
-            $query2 = "EXEC [dbo].[SP_AutoJualDet] '".$getName."','".$getColours."','".$getQty."','".$totalHarga."','".$kodeProduct."'";
-            $result2 = sqlsrv_query($conn, $query2);
-            if($result2){
-               header("Location:page1.php?q=$userName");
-            }
-            else{
-                echo "gagal";
-                header("Location:page1.php?q=$userName");
-            }
+
+        $sql = "SELECT Qty FROM tbStock WHERE KodeProduct = '$kodeProduct'";
+        $result3 = sqlsrv_query($conn, $sql);
+        echo $result3;
+        if($result3<$getQty){
+            echo '<script type ="text/JavaScript">window.alert("Stock Barang Tidak Mencukupi")</script>';
+            header("Refresh:0; url=page1.php?q=$userName");
         }
         else{
-            echo "gagal";
+            $query = "EXEC [dbo].[SP_AutoJual] '".$kodePabrik."','".$akun."'";
+            $result = sqlsrv_query($conn, $query);
+            if($result){
+                $query2 = "EXEC [dbo].[SP_AutoJualDet] '".$getName."','".$getColours."','".$getQty."','".$totalHarga."','".$kodeProduct."'";
+                $result2 = sqlsrv_query($conn, $query2);
+                if($result2){
+                   header("Location:page1.php?q=$userName");
+                }
+                else{
+                    echo "gagal1";
+                    header("Location:page1.php?q=$userName");
+                }
+            }
+            else{
+                echo "gagal2";
+            }
         }
     }
     
